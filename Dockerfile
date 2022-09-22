@@ -15,4 +15,6 @@ RUN curl -fSLo stunnel_installer.exe https://www.stunnel.org/downloads/stunnel-%
 
 COPY stunnel.conf WriteConfig.ps1 ./
 
+HEALTHCHECK --start-period=5s CMD ["powershell", "-Command", "ps stunnel >$null"]
+
 CMD powershell -File .\WriteConfig.ps1
