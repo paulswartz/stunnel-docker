@@ -10,7 +10,8 @@ else
   docker build . \
     --build-arg BUILD_IMAGE="alpine:${ALPINE_VERSION}" \
     --build-arg STUNNEL_VERSION=$STUNNEL_VERSION \
-    --tag "${stunnelimage}:${stunneltag}"
+    --tag "${stunnelimage}:${stunneltag}" --tag "${stunnelimage}:latest"
 
   docker push "${stunnelimage}:${stunneltag}"
+  docker push "${stunnelimage}:latest"
 fi
